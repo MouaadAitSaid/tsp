@@ -1,0 +1,45 @@
+<div class="container">
+  <div style="display: flex; justify-content: space-between;width: 100%">
+    <h1>User Management</h1>
+    <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+  </div>
+
+  <div class="table">
+    <div class="searchFilterBar">
+      <!-- Add User Button -->
+      <button mat-raised-button color="primary" (click)="openUserDialog()">Add User</button>
+
+      <!-- Search Input -->
+      <mat-form-field appearance="outline">
+        <mat-label>Search</mat-label>
+        <input
+          matInput
+          placeholder="Search users"
+          [(ngModel)]="searchTerm"
+          (input)="onSearch()"
+        />
+      </mat-form-field>
+
+      <!-- Filter By Country Dropdown -->
+      <mat-form-field appearance="outline">
+        <mat-label>Filter by Country</mat-label>
+        <mat-select [(ngModel)]="selectedCountry" (selectionChange)="onCountryChange()">
+          <mat-option value="">All Countries</mat-option>
+          <mat-option *ngFor="let country of countries" [value]="country">
+            {{ country }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Table Component -->
+    <app-generic-table
+      [displayedColumns]="displayedColumns"
+      [dataSource]="dataSource"
+      [totalLength]="totalLength"
+      (pageChange)="onPageChange($event)"
+      (runActionSignal)="runAction($event)"
+    >
+    </app-generic-table>
+  </div>
+</div>

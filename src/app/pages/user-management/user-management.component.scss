@@ -1,0 +1,27 @@
+.table{
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-direction: column;
+}
+
+.searchFilterBar{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.container{
+  padding: 20px;
+}
+
+.searchFilterBar {
+  display: flex;
+  align-items: center;
+  gap: 20px; // Space between elements
+  margin-bottom: 20px;
+}
+
+.mat-form-field {
+  width: 300px; // Adjust width as needed
+}

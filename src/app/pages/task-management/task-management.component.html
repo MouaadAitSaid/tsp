@@ -1,0 +1,19 @@
+<div class="task-container">
+  <div
+    class="task-column"
+    *ngFor="let status of statuses"
+    [style.border-color]="getColumnColor(status)"
+  >
+    <h3>{{ status }}</h3>
+    <mat-list>
+      <mat-list-item *ngFor="let task of tasksByStatus[status]">
+        <div class="task-item" [style.background-color]="task.color">
+          <h4>{{ task.title }}</h4>
+          <p>{{ task.description }}</p>
+          <small>Due: {{ task.dueDate | date: 'short' }}</small>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
+
